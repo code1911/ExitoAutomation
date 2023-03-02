@@ -1,1 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="Escenario para comprar productos en el exito por diferente categprias" skipped="2" tests="2" time="21.82" timestamp="2023-03-01 06:01:40"><testcase name="Buy for category and subcategory"><skipped/></testcase></testsuite>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="1" failures="0" name="Escenario para comprar productos en el exito por diferente categprias" skipped="0" tests="2" time="44.58" timestamp="2023-03-01 11:18:06"><testcase name="Buy for category and subcategory"><error message="Expected condition failed: waiting for Expecting element is displayed: By.xpath:  //*[@id='gallery-layout-container']/div[1]//span[contains (text(),'Compra') or text() = 'Agregar'] (tried for 5 second(s) with 50 milliseconds interval)&#10;Build info: version: '4.7.1', revision: 'c6795baf1a3'&#10;System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.17'&#10;Driver info: driver.version: unknown&#10;Build info: version: '4.7.1', revision: 'c6795baf1a3'&#10;System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.17'&#10;Driver info: driver.version: unknown" type="org.openqa.selenium.TimeoutException">Expected condition failed: waiting for Expecting element is displayed: By.xpath:  //*[@id='gallery-layout-container']/div[1]//span[contains (text(),'Compra') or text() = 'Agregar'] (tried for 5 second(s) with 50 milliseconds interval)
+Build info: version: '4.7.1', revision: 'c6795baf1a3'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.17'
+Driver info: driver.version: unknown
+Build info: version: '4.7.1', revision: 'c6795baf1a3'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.17'
+Driver info: driver.version: unknown</error><system-err>Expected condition failed: waiting for Expecting element is displayed: By.xpath:  //*[@id='gallery-layout-container']/div[1]//span[contains (text(),'Compra') or text() = 'Agregar'] (tried for 5 second(s) with 50 milliseconds interval)
+Build info: version: '4.7.1', revision: 'c6795baf1a3'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.17'
+Driver info: driver.version: unknown
+Build info: version: '4.7.1', revision: 'c6795baf1a3'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.17'
+Driver info: driver.version: unknown&#13;
+com.co.exito.buy.stepdefinitions.buyExitoStepDefinitions.selectCategoryAndSubcategory(buyExitoStepDefinitions.java:40)&#13;
+✽.select category Hogar y muebles and subcategory Comedor(file:///C:/Users/user/Documents/Code/ExitoAutomation/src/test/resources/features/category_buy_exito.feature:6)&#13;
+</system-err></testcase></testsuite>

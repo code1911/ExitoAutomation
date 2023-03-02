@@ -10,5 +10,5 @@ Feature: Escenario para comprar productos en el exito por diferente categprias
 
     Examples:
       | category         | subcategory     |
-      | tecnología       | televisores     |
-      | hogar y muebles  | comedores       |
+      | Tecnología       | Samsung         |
+      | Hogar y muebles  | Comedor         |
