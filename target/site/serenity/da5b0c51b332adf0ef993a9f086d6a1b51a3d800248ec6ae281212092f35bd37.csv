@@ -1,2 +1,2 @@
 "Story","Title","Result","Date","Stability","Duration (s)"
-"Escenario para comprar productos en el exito por diferente categprias","Buy for category and subcategory","ERROR","2023-03-02T16:56:05.0470184-05:00[America/Bogota]","0.0","60.86"
+"Escenario para comprar productos en el exito por diferente categprias","Buy for category and subcategory","FAILURE","2023-03-08T13:42:19.7890278-05:00[America/Bogota]","0.0","32.59"

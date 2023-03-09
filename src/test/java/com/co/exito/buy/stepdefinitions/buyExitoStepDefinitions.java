@@ -7,6 +7,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actions.Click;
@@ -15,7 +16,9 @@ import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.thucydides.core.annotations.Managed;
 import org.openqa.selenium.WebDriver;
 import java.time.Duration;
-import java.util.HashMap;
+import java.util.*;
+
+import static com.co.exito.buy.userinterfaces.Cart.*;
 import static com.co.exito.buy.userinterfaces.Gallery.*;
 import static com.co.exito.buy.userinterfaces.Menu.*;
 import static net.serenitybdd.screenplay.actors.OnStage.setTheStage;
@@ -47,31 +50,34 @@ public class buyExitoStepDefinitions {
     @And("select five product randomly with unit randomly between {int} and {int}")
     public void selectFiveProductRandomlyWithUnitRandomlyBetweenAnd(int min, int max) {
         randomNumber random = new randomNumber();
-        //int totalProductsGallery = ITEMS.waitingForNoMoreThan(Duration.ofSeconds(5)).resolveAllFor(actor).toArray().length;
-        int totalProductsGallery = 11;
-
-        HashMap<String, String> listProducts = new HashMap<>();
-        for (int i = 1; i <= 1; i++){
+        int totalProductsGallery = ITEMS.resolveAllFor(actor).size();
+        System.out.println(totalProductsGallery);
+        HashMap<String, List<String>> listProducts = new HashMap<>();
+        Set<Integer> nums = random.randomNumberIntSet(1, totalProductsGallery);
+        for (int numProduct : nums){
+            List<String> listProduct = new ArrayList<>();
             int cant = random.randomNumberInt(min, max);
-            int numProduct = random.randomNumberInt(1, totalProductsGallery);
             actor.attemptsTo(
-                    Scroll.to(ITEM.of(String.valueOf(numProduct)).waitingForNoMoreThan(Duration.ofSeconds(3))),
+                    Scroll.to(PRICE_PRODUCT.of(String.valueOf(numProduct)).waitingForNoMoreThan(Duration.ofSeconds(3))),
                     addProductCart.select(numProduct, cant)
             );
-            listProducts.put("name", NAME_PRODUCT.of(String.valueOf(numProduct)).resolveFor(actor).getText());
-            listProducts.put("price", PRICE_PRODUCT.of(String.valueOf(numProduct)).resolveFor(actor).getText());
-            listProducts.put("cant", String.valueOf(cant));
-
+            listProduct.add(NAME_PRODUCT.of(String.valueOf(numProduct)).resolveFor(actor).getText());
+            listProduct.add(PRICE_PRODUCT.of(String.valueOf(numProduct)).resolveFor(actor).getText());
+            listProduct.add(String.valueOf(cant));
+            listProducts.put("Product"+numProduct, listProduct);
         }
         actor.remember("listProducts", listProducts);
     }
     @Then("validate name price and total the products aggregates to cart")
     public void validateNamePriceAndTotalTheProductsAggregatesToCart() {
+        actor.attemptsTo(
+                Click.on(CART.waitingForNoMoreThan(Duration.ofSeconds(5)))
+        );
 
     }
     @And("validate number products total")
     public void validateNumberProductsTotal() {
-
+        int totalProductsGallery = CART_ITEMS.resolveAllFor(actor).size();
     }
 
 

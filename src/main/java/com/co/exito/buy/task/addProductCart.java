@@ -23,7 +23,7 @@ public class addProductCart implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Scroll.to(BUTTON_SELECT_PRODUCT.of(String.valueOf(numProduct))),
+                Scroll.to(PRICE_PRODUCT.of(String.valueOf(numProduct)).waitingForNoMoreThan(Duration.ofSeconds(3))),
                 Click.on(BUTTON_SELECT_PRODUCT.of(String.valueOf(numProduct)))
         );
         for (int i = 1; i < cant; i++){
